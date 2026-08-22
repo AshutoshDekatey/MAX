@@ -1,0 +1,56 @@
+Project MAX V0 verification record
+Date: 2026-08-21 UTC
+Version: V0 - The Dirty Bank
+
+Repository scope
+- Project directory inspected before staging.
+- Generated caches, virtual environment, temporary runs and package metadata are ignored.
+- Credential-pattern scan returned no matches.
+- AWS resources used: none.
+
+Static quality
+- Command: .venv/bin/python -m ruff check .
+- Result: All checks passed.
+
+Automated tests
+- Command: .venv/bin/python -m pytest
+- Result: 12 passed, 1 skipped.
+- Skip reason: MAX_TEST_DATABASE_URL was not configured; the PostgreSQL integration test is opt-in and never falls back to a development database.
+
+Fresh generation verification
+- Customers: 25
+- Accounts: 28
+- Cards: 28
+- Addresses: 25
+- Customer status rows: 25
+- Merchants: 20
+- Devices: 28
+- Payments: 125
+- Authentication events: 125
+- Delayed fraud labels: 8
+- Fraud cases: 8
+- Banking documents: 6
+- Deliberate defect types: 15
+- Inventoried source files: 24
+- Result: all asserted counts and defect coverage passed.
+
+Document verification
+- Image-only investigation PDF extracted text bytes: 1 (PDF page delimiter only).
+- Result: no searchable text layer; suitable as a later OCR test input.
+
+Streamlit verification
+- App title rendered: Project MAX - V0: The Dirty Bank.
+- Controls rendered: View System Flow, Generate customers, Generate transactions, Generate fraud, Create bad records.
+- Source-run and artifact inspectors rendered.
+- View System Flow click produced one dialog and zero application exceptions.
+- Shared graph definition validation passed.
+
+Visual evidence
+- system-flow-viewer.svg generated from frontend/streamlit/architecture/v0.json through the shared viewer renderer.
+- system-flow-viewer.png rendered at 1680 x 1350 and visually inspected.
+- Current version, cumulative V0 nodes, categories, directional arrowheads, New in V0 indicators, legend and new-version summary are visible.
+
+Known human-controlled boundary
+- PostgreSQL DDL and loader are implemented and tested structurally.
+- A live PostgreSQL load was not attempted because no disposable database credentials were supplied.
+- No credentials, IAM configuration, AWS account action, tag or release were created.

@@ -1,0 +1,5 @@
+Fraud Operations Escalation Matrix v1
+
+P2: suspected account takeover or aggregate exposure above INR 100,000; notify the duty manager.
+P3: confirmed single-card fraud below INR 100,000; assign to the card fraud queue.
+P4: merchant descriptor inquiry without confirmed loss; standard review queue.

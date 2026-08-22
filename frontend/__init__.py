@@ -1,0 +1,2 @@
+"""Project MAX frontends."""
+

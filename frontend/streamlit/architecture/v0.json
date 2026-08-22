@@ -1,0 +1,43 @@
+{
+  "version": "V0",
+  "title": "The Dirty Bank — Cumulative System Flow",
+  "subtitle": "A simulated operational bank with independent, imperfect source systems; no analytical platform yet.",
+  "new_in_version": "The Meridian Bank simulator, operational source contracts, delayed labels, unstructured documents and controlled data defects.",
+  "canvas": {"width": 1040, "height": 650},
+  "categories": [
+    {"id": "application", "label": "Application", "color": "#123a52", "stroke": "#42b7d7"},
+    {"id": "processing", "label": "Processing", "color": "#263451", "stroke": "#8aa4d6"},
+    {"id": "source", "label": "Source System", "color": "#173f39", "stroke": "#49c6a7"},
+    {"id": "data", "label": "Raw Operational Data", "color": "#49371d", "stroke": "#e5ae57"}
+  ],
+  "nodes": [
+    {"id": "simulator", "label": "Source Systems Simulator", "category": "application", "description": "Streamlit controls and inspectors", "tooltip": "Generate and inspect synthetic Meridian source runs.", "introduced_in": "V0", "x": 425, "y": 20},
+    {"id": "factory", "label": "Synthetic Data Factory", "category": "processing", "description": "Deterministic generation", "tooltip": "Seeded Python generators preserve cross-system identities.", "introduced_in": "V0", "x": 270, "y": 125},
+    {"id": "defects", "label": "Bad-Data Injector", "category": "processing", "description": "Controlled source defects", "tooltip": "Creates known defects and a machine-readable ledger.", "introduced_in": "V0", "x": 580, "y": 125},
+    {"id": "core", "label": "Core Customer DB", "category": "source", "description": "PostgreSQL", "tooltip": "Customers, accounts, cards, addresses and status history.", "introduced_in": "V0", "x": 35, "y": 245},
+    {"id": "payments", "label": "Payment Authorizations", "category": "source", "description": "JSON events", "tooltip": "Card authorization events with transaction context.", "introduced_in": "V0", "x": 290, "y": 245},
+    {"id": "auth", "label": "Authentication Events", "category": "source", "description": "JSON events", "tooltip": "OTP, biometric, 3DS, password and device events.", "introduced_in": "V0", "x": 545, "y": 245},
+    {"id": "devices", "label": "Device Intelligence", "category": "source", "description": "JSON snapshots", "tooltip": "Customer devices, IPs, software and risk signals.", "introduced_in": "V0", "x": 800, "y": 245},
+    {"id": "merchants", "label": "Merchant Reference", "category": "source", "description": "Daily CSV feed", "tooltip": "Dated merchant reference snapshots.", "introduced_in": "V0", "x": 35, "y": 365},
+    {"id": "labels", "label": "Fraud / Chargebacks", "category": "source", "description": "Delayed CSV labels", "tooltip": "Fraud truth arrives days after the payment.", "introduced_in": "V0", "x": 290, "y": 365},
+    {"id": "cases", "label": "Fraud Case System", "category": "source", "description": "Structured + notes", "tooltip": "Operational case fields and investigator narrative.", "introduced_in": "V0", "x": 545, "y": 365},
+    {"id": "documents", "label": "Banking Documents", "category": "source", "description": "PDF / DOCX / TXT / HTML", "tooltip": "Synthetic policies and procedures, including an image-only PDF.", "introduced_in": "V0", "x": 800, "y": 365},
+    {"id": "raw", "label": "Generated Source Run", "category": "data", "description": "Raw operational artifacts", "tooltip": "Immutable run directory; this is not a data lake.", "introduced_in": "V0", "x": 300, "y": 515},
+    {"id": "manifest", "label": "Run Manifest + Ledger", "category": "data", "description": "Counts, checksums, defects", "tooltip": "Evidence of what was generated and intentionally broken.", "introduced_in": "V0", "x": 550, "y": 515}
+  ],
+  "edges": [
+    {"from": "simulator", "to": "factory", "description": "Generation request"},
+    {"from": "simulator", "to": "defects", "description": "Defect injection request"},
+    {"from": "factory", "to": "core"}, {"from": "factory", "to": "payments"},
+    {"from": "factory", "to": "auth"}, {"from": "factory", "to": "devices"},
+    {"from": "factory", "to": "merchants"}, {"from": "factory", "to": "labels"},
+    {"from": "factory", "to": "cases"}, {"from": "factory", "to": "documents"},
+    {"from": "core", "to": "raw"}, {"from": "payments", "to": "raw"},
+    {"from": "auth", "to": "raw"}, {"from": "devices", "to": "raw"},
+    {"from": "merchants", "to": "raw"}, {"from": "labels", "to": "raw"},
+    {"from": "cases", "to": "raw"}, {"from": "documents", "to": "raw"},
+    {"from": "defects", "to": "manifest", "description": "Known defects recorded"},
+    {"from": "raw", "to": "manifest", "description": "Inventory and checksums"}
+  ]
+}
+

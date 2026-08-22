@@ -1,0 +1,180 @@
+{
+  "as_of": "2026-08-20T12:00:00+00:00",
+  "bank": "Meridian Bank",
+  "base_currency": "INR",
+  "counts": {
+    "accounts": 27,
+    "addresses": 24,
+    "authentication_events": 120,
+    "cards": 27,
+    "customer_status_history": 24,
+    "customers": 24,
+    "defects": 15,
+    "devices": 27,
+    "documents": 6,
+    "fraud_cases": 11,
+    "fraud_labels": 11,
+    "merchants": 18,
+    "payments": 120
+  },
+  "database_loaded": false,
+  "database_url_present": false,
+  "document_catalog": [
+    {
+      "file": "fraud_policy_v1.pdf",
+      "format": "PDF",
+      "ocr_candidate": false
+    },
+    {
+      "file": "dispute_procedure_v1.docx",
+      "format": "DOCX",
+      "ocr_candidate": false
+    },
+    {
+      "file": "escalation_matrix_v1.txt",
+      "format": "TXT",
+      "ocr_candidate": false
+    },
+    {
+      "file": "merchant_risk_standard_v1.html",
+      "format": "HTML",
+      "ocr_candidate": false
+    },
+    {
+      "file": "authentication_policy_v1.pdf",
+      "format": "PDF",
+      "ocr_candidate": false
+    },
+    {
+      "file": "investigation_procedure_scanned_v1.pdf",
+      "format": "PDF_IMAGE_ONLY",
+      "ocr_candidate": true
+    }
+  ],
+  "files": [
+    {
+      "bytes": 29164,
+      "path": "authentication/authentication_events.jsonl",
+      "sha256": "839e502ee72cbd0d33469b1fdc8a6f2573d94f261a7cc60977a8fe366e3e8952"
+    },
+    {
+      "bytes": 1956,
+      "path": "banking_documents/authentication_policy_v1.pdf",
+      "sha256": "4f6641c0dbbc98ed08debeb4155f4433cb8d5e59fc5b1ed9bb62708d545ac4b6"
+    },
+    {
+      "bytes": 36793,
+      "path": "banking_documents/dispute_procedure_v1.docx",
+      "sha256": "a9afa82ffe3997f86491a022ad69659a33192dcf46e900d03e38231755110181"
+    },
+    {
+      "bytes": 298,
+      "path": "banking_documents/escalation_matrix_v1.txt",
+      "sha256": "89d68bd28f1f1ba4d2a6916ead26861920c29a99d2b02f226b859a2e2f9bf990"
+    },
+    {
+      "bytes": 2141,
+      "path": "banking_documents/fraud_policy_v1.pdf",
+      "sha256": "4efa46b5dc0631d7c14f074abc69c69b416607fedf7ab4c7a01874089dad5f5f"
+    },
+    {
+      "bytes": 33525,
+      "path": "banking_documents/investigation_procedure_scanned_v1.pdf",
+      "sha256": "f84ca1d60a62b2460c3009521f00239434fd804002c28db03cf2fdbb34d7c33f"
+    },
+    {
+      "bytes": 380,
+      "path": "banking_documents/merchant_risk_standard_v1.html",
+      "sha256": "12797e31c7ceb71bac2810a3ba9bfbd6a6c57c49b7dad093470f518f121a741f"
+    },
+    {
+      "bytes": 1911,
+      "path": "core_banking/accounts.csv",
+      "sha256": "f1f3ad35980bde8fb8896882d057d28f876ac1537c53e6a17d85fee8cdfee13d"
+    },
+    {
+      "bytes": 2334,
+      "path": "core_banking/addresses.csv",
+      "sha256": "1e406091a5377ec40c5e1bfe94fc12eac052cb7321d59f0552a39be28fed84ab"
+    },
+    {
+      "bytes": 3310,
+      "path": "core_banking/cards.csv",
+      "sha256": "c1c231d551f5de513608ed4babf541750f8030cb41ecb49a735d0d7fa3068eb4"
+    },
+    {
+      "bytes": 1819,
+      "path": "core_banking/customer_status_history.csv",
+      "sha256": "65b3221bf153a57a82e95710d3a2502853dd4c4021c8137e528e595e73d4f013"
+    },
+    {
+      "bytes": 3415,
+      "path": "core_banking/customers.csv",
+      "sha256": "de6adb32eb2af3a67f23d5df970ae7e20c7eb5a7ed78424f141ea2e4bd357125"
+    },
+    {
+      "bytes": 6368,
+      "path": "device_intelligence/devices.jsonl",
+      "sha256": "b610e8d8964e1c25f314b4dcef806d349ae02cd0ffa179a4ddea007385181293"
+    },
+    {
+      "bytes": 3509,
+      "path": "dirty/core_banking/customers_dirty.csv",
+      "sha256": "a209fd26365bc031177683c28cc9208e7419197bd85868f833b2ab7f2b9e20c4"
+    },
+    {
+      "bytes": 3717,
+      "path": "dirty/defect_ledger.json",
+      "sha256": "ca9b72551bd3c1491df60ae60f741fa636f6bd12c6c22d7f5c3b72a7dd6e59f3"
+    },
+    {
+      "bytes": 6376,
+      "path": "dirty/device_intelligence/devices_dirty.jsonl",
+      "sha256": "fe1f3000521c826779f601ee6704e9909af4474f1bdf05e05b4ccda30fa272af"
+    },
+    {
+      "bytes": 1428,
+      "path": "dirty/fraud_labels/fraud_chargebacks_dirty.csv",
+      "sha256": "c2c4d50ee5337e3e2e296d4a7b1c83fbfadc7cea351d17ce10b1381ad53b81eb"
+    },
+    {
+      "bytes": 1636,
+      "path": "dirty/merchant_reference/merchant_reference_dirty.csv",
+      "sha256": "7c236b9cb40c50ef1aa6615d4911e7029b5e7f5608c5684dc4bcfed83ab03b3b"
+    },
+    {
+      "bytes": 1636,
+      "path": "dirty/merchant_reference/merchant_reference_dirty_COPY.csv",
+      "sha256": "7c236b9cb40c50ef1aa6615d4911e7029b5e7f5608c5684dc4bcfed83ab03b3b"
+    },
+    {
+      "bytes": 54883,
+      "path": "dirty/payments/payment_authorizations_dirty.jsonl",
+      "sha256": "3e5774a042c2e165fd010a42bce954f785b9923b128ffa3e2f4bb5a42a99ae4e"
+    },
+    {
+      "bytes": 4307,
+      "path": "fraud_cases/fraud_cases.jsonl",
+      "sha256": "1b206d50cbcbc10e7565e375ef66c0840fd853825ef40dd4e26b74ea89e0ae23"
+    },
+    {
+      "bytes": 1428,
+      "path": "fraud_labels/fraud_chargebacks.csv",
+      "sha256": "c2c4d50ee5337e3e2e296d4a7b1c83fbfadc7cea351d17ce10b1381ad53b81eb"
+    },
+    {
+      "bytes": 1632,
+      "path": "merchant_reference/merchant_reference_2026_08_20.csv",
+      "sha256": "98dbef4182f28f1daa7dbf777dd37c9801a52bb0d64f2ef0659b828c7bf4cf12"
+    },
+    {
+      "bytes": 54393,
+      "path": "payments/payment_authorizations.jsonl",
+      "sha256": "c613974d82739c3e3d171f98540399b4495a80720a536501c527c7b6f21b3f09"
+    }
+  ],
+  "project": "Project MAX",
+  "purpose": "synthetic operational source-system simulation",
+  "seed": 20260820,
+  "version": "V0"
+}

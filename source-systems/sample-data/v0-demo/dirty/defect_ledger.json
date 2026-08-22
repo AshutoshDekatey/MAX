@@ -1,0 +1,110 @@
+{
+  "defects": [
+    {
+      "defect_id": "DEF0001",
+      "defect_type": "null_values",
+      "description": "email is null",
+      "record_id": "CUS0000001",
+      "target": "dirty/core_banking/customers_dirty.csv"
+    },
+    {
+      "defect_id": "DEF0002",
+      "defect_type": "duplicate_records",
+      "description": "exact customer row repeated",
+      "record_id": "CUS0000001",
+      "target": "dirty/core_banking/customers_dirty.csv"
+    },
+    {
+      "defect_id": "DEF0003",
+      "defect_type": "duplicate_transaction_events",
+      "description": "same payment event emitted twice",
+      "record_id": "PAYEVT0000000069",
+      "target": "dirty/payments/payment_authorizations_dirty.jsonl"
+    },
+    {
+      "defect_id": "DEF0004",
+      "defect_type": "inconsistent_country_codes",
+      "description": "ISO-2 country changed to IND",
+      "record_id": "PAYEVT0000000078",
+      "target": "dirty/payments/payment_authorizations_dirty.jsonl"
+    },
+    {
+      "defect_id": "DEF0005",
+      "defect_type": "inconsistent_currencies",
+      "description": "non-ISO currency Rs",
+      "record_id": "PAYEVT0000000013",
+      "target": "dirty/payments/payment_authorizations_dirty.jsonl"
+    },
+    {
+      "defect_id": "DEF0006",
+      "defect_type": "malformed_timestamps",
+      "description": "unparseable timestamp",
+      "record_id": "PAYEVT0000000098",
+      "target": "dirty/payments/payment_authorizations_dirty.jsonl"
+    },
+    {
+      "defect_id": "DEF0007",
+      "defect_type": "wrong_data_types",
+      "description": "amount changed from number to text",
+      "record_id": "PAYEVT0000000088",
+      "target": "dirty/payments/payment_authorizations_dirty.jsonl"
+    },
+    {
+      "defect_id": "DEF0008",
+      "defect_type": "late_records",
+      "description": "emitted four days after event time",
+      "record_id": "PAYEVT0000000030",
+      "target": "dirty/payments/payment_authorizations_dirty.jsonl"
+    },
+    {
+      "defect_id": "DEF0009",
+      "defect_type": "unexpected_categories",
+      "description": "new undocumented channel",
+      "record_id": "PAYEVT0000000094",
+      "target": "dirty/payments/payment_authorizations_dirty.jsonl"
+    },
+    {
+      "defect_id": "DEF0010",
+      "defect_type": "schema_changes",
+      "description": "v2 field appears in a v1 stream",
+      "record_id": "PAYEVT0000000085",
+      "target": "dirty/payments/payment_authorizations_dirty.jsonl"
+    },
+    {
+      "defect_id": "DEF0011",
+      "defect_type": "invalid_foreign_keys",
+      "description": "device references an unknown customer",
+      "record_id": "DEV00000001",
+      "target": "dirty/device_intelligence/devices_dirty.jsonl"
+    },
+    {
+      "defect_id": "DEF0012",
+      "defect_type": "stale_reference_data",
+      "description": "reference date is intentionally stale",
+      "record_id": "MER000001",
+      "target": "dirty/merchant_reference/merchant_reference_dirty.csv"
+    },
+    {
+      "defect_id": "DEF0013",
+      "defect_type": "merchant_name_variations",
+      "description": "case, spacing and suffix variation",
+      "record_id": "MER000002",
+      "target": "dirty/merchant_reference/merchant_reference_dirty.csv"
+    },
+    {
+      "defect_id": "DEF0014",
+      "defect_type": "duplicated_files",
+      "description": "byte-identical merchant feed copy",
+      "record_id": "FILE",
+      "target": "dirty/merchant_reference/merchant_reference_dirty_COPY.csv"
+    },
+    {
+      "defect_id": "DEF0015",
+      "defect_type": "delayed_fraud_labels",
+      "description": "labels arrive 2-21 days after transaction time by design",
+      "record_id": "FRD00000001",
+      "target": "fraud_labels/fraud_chargebacks.csv"
+    }
+  ],
+  "version": "V0"
+}
