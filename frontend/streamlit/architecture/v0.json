@@ -5,11 +5,11 @@
   "new_in_version": "The Meridian Bank simulator, operational source contracts, delayed labels, unstructured documents and controlled data defects.",
   "canvas": {"width": 1040, "height": 650},
   "categories": [
-    {"id": "application", "label": "Application", "color": "#123a52", "stroke": "#42b7d7"},
-    {"id": "processing", "label": "Processing", "color": "#263451", "stroke": "#8aa4d6"},
-    {"id": "source", "label": "Source System", "color": "#173f39", "stroke": "#49c6a7"},
-    {"id": "data", "label": "Raw Operational Data", "color": "#49371d", "stroke": "#e5ae57"}
-  ],
+  {"id": "application", "label": "Application", "color": "#e0f2fe", "stroke": "#0284c7"},
+  {"id": "processing", "label": "Processing", "color": "#e0e7ff", "stroke": "#6366f1"},
+  {"id": "source", "label": "Source System", "color": "#dcfce7", "stroke": "#16a34a"},
+  {"id": "data", "label": "Raw Operational Data", "color": "#fef3c7", "stroke": "#d97706"}
+],
   "nodes": [
     {"id": "simulator", "label": "Source Systems Simulator", "category": "application", "description": "Streamlit controls and inspectors", "tooltip": "Generate and inspect synthetic Meridian source runs.", "introduced_in": "V0", "x": 425, "y": 20},
     {"id": "factory", "label": "Synthetic Data Factory", "category": "processing", "description": "Deterministic generation", "tooltip": "Seeded Python generators preserve cross-system identities.", "introduced_in": "V0", "x": 270, "y": 125},
