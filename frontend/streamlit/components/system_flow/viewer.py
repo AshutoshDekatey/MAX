@@ -60,7 +60,6 @@ def build_viewer_svg(graph: dict[str, Any]) -> str:
         )
         x1 = source_x + delta_x * boundary_scale
         y1 = source_y + delta_y * boundary_scale
-        # Stop slightly before the target border so the arrowhead stays visible.
         arrow_gap = boundary_scale + 0.018
         x2 = target_x - delta_x * arrow_gap
         y2 = target_y - delta_y * arrow_gap
@@ -89,7 +88,8 @@ def build_viewer_svg(graph: dict[str, Any]) -> str:
 
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-label="{_escape(graph['title'])}">
 <style>{SVG_CSS}</style>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#8394ad"/></marker><filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity=".24"/></filter></defs>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker><filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity=".14"/></filter></defs>
+<rect width="100%" height="100%" fill="#ffffff"/>
 {''.join(edge_svg)}{''.join(node_svg)}</svg>"""
 
 
@@ -102,9 +102,13 @@ def build_viewer_html(graph: dict[str, Any]) -> str:
     return f"""<style>{VIEWER_CSS}</style><section class="max-flow-viewer">
 <div class="eyebrow">Project MAX — {graph['version']}</div><h2>{_escape(graph['title'])}</h2>
 <div class="subtitle">{_escape(graph.get('subtitle', 'Cumulative architecture'))}</div>
-<div class="graph-shell">{build_viewer_svg(graph)}</div><div class="legend">{legend}</div>
+<div class="legend">{legend}</div>
 <div class="new-summary"><strong>New in this version:</strong> {_escape(graph['new_in_version'])}</div></section>"""
 
 
 def render_system_flow(path: Path) -> None:
-    st.html(build_viewer_html(load_architecture(path)), width="stretch")
+    graph = load_architecture(path)
+    # st.image renders SVG directly and avoids HTML sanitization removing parts of
+    # the diagram. Header/legend remain regular sanitized Streamlit HTML.
+    st.html(build_viewer_html(graph), width="stretch")
+    st.image(build_viewer_svg(graph), width="stretch")
