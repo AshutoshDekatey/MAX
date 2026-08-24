@@ -44,7 +44,7 @@ def build_viewer_svg(graph: dict[str, Any]) -> str:
     categories = {item["id"]: item for item in graph["categories"]}
     nodes = {item["id"]: item for item in graph["nodes"]}
     width, height = graph.get("canvas", {}).get("width", 1040), graph.get("canvas", {}).get("height", 650)
-    node_width, node_height = 190, 70
+    node_width, node_height = 220, 82
 
     edge_svg = []
     for edge in graph["edges"]:
@@ -76,8 +76,8 @@ def build_viewer_svg(graph: dict[str, Any]) -> str:
         label = _escape(node["label"])
         node_svg.append(
             f'<g><rect class="{css_class}" x="{x}" y="{y}" width="{node_width}" height="{node_height}" fill="{_escape(category["color"])}" stroke="{_escape(category["stroke"])}"><title>{_escape(node.get("tooltip", node.get("description", "")))}</title></rect>'
-            f'<text class="node-label" x="{x + node_width / 2}" y="{y + 31}">{label}</text>'
-            f'<text class="node-kind" x="{x + node_width / 2}" y="{y + 50}">{_escape(category["label"])}</text>'
+            f'<text class="node-label" x="{x + node_width / 2}" y="{y + 37}">{label}</text>'
+            f'<text class="node-kind" x="{x + node_width / 2}" y="{y + 59}">{_escape(category["label"])}</text>'
             + (
                 f'<rect class="new-pill" x="{x + 121}" y="{y + 7}" width="60" height="16" rx="8"/><text class="new-text" x="{x + 151}" y="{y + 18}">NEW IN {graph["version"]}</text>'
                 if introduced
