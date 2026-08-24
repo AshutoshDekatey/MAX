@@ -9,7 +9,7 @@ from typing import Any
 
 import streamlit as st
 
-from frontend.streamlit.components.system_flow.styles import SVG_CSS, VIEWER_CSS
+from .styles import SVG_CSS, VIEWER_CSS
 
 
 def load_architecture(path: Path) -> dict[str, Any]:
