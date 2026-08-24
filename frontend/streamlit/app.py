@@ -9,7 +9,7 @@ from uuid import uuid4
 import pandas as pd
 import streamlit as st
 
-from frontend.streamlit.components.system_flow import render_system_flow
+from components.system_flow import render_system_flow
 from project_max.config import GenerationConfig
 from project_max.generation import generate_bank
 from project_max.inspection.catalog import list_runs, list_source_files, load_manifest, preview_file
